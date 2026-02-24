@@ -4,6 +4,15 @@ import { motion } from 'framer-motion';
 const Hero: React.FC = () => {
     return (
         <section id="home" className="hero-section">
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="hero-video"
+            >
+                <source src="/grok-video-278b32cc-d2fd-4ba0-ba7c-27556eb82be7.mp4" type="video/mp4" />
+            </video>
             <div className="container">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
