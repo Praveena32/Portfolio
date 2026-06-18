@@ -262,7 +262,7 @@ export const projectsData: Project[] = [
         tech: ['React', 'Vite', 'TypeScript', 'Framer Motion', 'Vanilla CSS3', 'HTML5'],
         image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80',
         github: 'https://github.com/Praveena32/Portfolio',
-        demo: '#',
+        demo: 'https://praveenabuddhini.vercel.app/',
         details: {
             problem: 'A standard resume or template-based portfolio fails to showcase advanced frontend capabilities, custom animations, or dynamic routing systems in a single cohesive product.',
             solution: 'Designed and engineered a custom glassmorphic developer hub containing structured hash-based routing for case studies, an interactive device bezel simulator for mobile screenshot previews, and a vector logo lightbox catalog.',
