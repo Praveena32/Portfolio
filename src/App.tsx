@@ -11,6 +11,7 @@ import Achievements from './components/Achievements';
 import Background from './components/Background';
 import ProjectDetails from './components/ProjectDetails';
 import CursorFollower from './components/CursorFollower';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
@@ -65,6 +66,7 @@ function App() {
     <div className="app">
       <Background />
       <CursorFollower />
+      <Analytics />
       {!currentProjectId && (
         <motion.div
           style={{
