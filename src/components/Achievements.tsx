@@ -7,7 +7,7 @@ interface AchievementItem {
     organization: string;
     date: string;
     type: 'certification' | 'award';
-    description?: string;
+    description?: React.ReactNode;
     link?: string;
 }
 
@@ -15,7 +15,7 @@ interface VolunteerItem {
     role: string;
     organization: string;
     date: string;
-    description: string;
+    description: React.ReactNode;
     field: string;
 }
 
@@ -25,35 +25,35 @@ const achievementsData: AchievementItem[] = [
         organization: 'Oracle',
         date: 'Oct 2025',
         type: 'certification',
-        description: 'Demonstrated fundamental knowledge of Artificial Intelligence, Machine Learning, and OCI AI Services.'
+        description: <>Demonstrated fundamental knowledge of <strong>Artificial Intelligence</strong>, <strong>Machine Learning</strong>, and OCI AI Services.</>
     },
     {
         title: 'Hackforce’25 – Salesforce Hackathon (Final Top 11 Participant)',
         organization: 'Yarl Salesforce Ohana',
         date: 'Sep 2025',
         type: 'award',
-        description: 'Competed with developers island-wide, designing and presenting a Salesforce-based solution to solve real-world problems.'
+        description: <>Competed with developers island-wide, designing and presenting a Salesforce-based solution to solve real-world problems. Listed in <strong>Final Top 11</strong>.</>
     },
     {
         title: 'INNOVA Ideathon 2025 – 6th Place Winner',
         organization: 'IEEE Computer Society',
         date: 'Jul 2025',
         type: 'award',
-        description: 'Recognized for conceptualizing and designing innovative software solutions during the national-level ideathon.'
+        description: <>Recognized as <strong>6th Place Winner</strong> for conceptualizing and designing innovative software solutions during the national-level ideathon.</>
     },
     {
         title: 'Prompt Engineering: How to Talk to the AIs',
         organization: 'LinkedIn',
         date: 'Aug 2025',
         type: 'certification',
-        description: 'Acquired advanced prompt design strategies for language model interaction and application building.'
+        description: <>Acquired advanced prompt design strategies for <strong>large language model interaction</strong> and application building.</>
     },
     {
         title: 'Canva for Work & Design Milestones',
         organization: 'Canva',
         date: 'Feb 2024 - Aug 2025',
         type: 'certification',
-        description: 'Certified for design proficiency, completing over 50 custom marketing and visual layout templates.'
+        description: <>Certified for design proficiency, completing <strong>over 50 custom marketing</strong> and visual layout templates.</>
     }
 ];
 
@@ -63,14 +63,14 @@ const volunteerData: VolunteerItem[] = [
         organization: 'Microsoft Start (Weather) Reforestation Initiative',
         date: 'Oct 2024 - Present',
         field: 'Sustainability',
-        description: 'Contributed to the global reforestation project by planting a Mangrove Tree (“Heart of Nature”) in Mozambique, supporting ecosystem restoration and carbon offset programs.'
+        description: <>Contributed to the global reforestation project by planting a <strong>Mangrove Tree</strong> (“Heart of Nature”) in Mozambique, supporting ecosystem restoration and carbon offset programs.</>
     },
     {
         role: 'Active Member',
         organization: 'IEEE Student Branch - University of Vavuniya',
         date: 'May 2024 - Present',
         field: 'Academic & Tech',
-        description: 'Collaborated on student-led academic tech programs, visual graphic guidelines, and university hackathon coordination.'
+        description: <>Collaborated on student-led academic tech programs, <strong>visual graphic guidelines</strong>, and university <strong>hackathon coordination</strong>.</>
     }
 ];
 

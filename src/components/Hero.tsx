@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Download, ChevronRight, Linkedin, Github, Mail, Briefcase, GraduationCap, Code2 } from 'lucide-react';
 
 const roles = [
     'Aspiring Software Engineer',
     'Full-Stack Developer',
     'UI/UX Designer'
 ];
+
+const BehanceIcon = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="behance-icon">
+        <path d="M22 13h-5c0 1.103.897 2 2 2 1.103 0 2-.897 2-2zm-2-4h-1c-1.103 0-2 .897-2 2h5c0-1.103-.897-2-2-2zM9 13H5v2h4c1.103 0 2-.897 2-2s-.897-2-2-2zm0-6H5v2h4c1.103 0 2-.897 2-2s-.897-2-2-2zM12 3H2v18h20V3H12zm2 14h-2.5l-2.5-3.5L6.5 17H4v-2h2.5L9 11.5 6.5 8H4V6h2.5l2.5 3.5L11.5 6H14v2h-2.5L9 11.5l2.5 3.5H14v2zm6-4h-5c0-2.206 1.794-4 4-4s4 1.794 4 4c0 1.053-.408 2.01-.1.1z" />
+    </svg>
+);
 
 const Hero: React.FC = () => {
     const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -77,12 +84,83 @@ const Hero: React.FC = () => {
                     <p className="hero-education">
                         Bachelors in ICT Honors — University of Vavuniya
                     </p>
-                    <p className="hero-availability">
-                        Open to industry internships and research collaborations
-                    </p>
+                    <div className="hero-availability-badge glass outfit" id="hero-availability-status">
+                        <span className="availability-pulse-dot"></span>
+                        <span>Open to industry internships and research collaborations</span>
+                    </div>
+
+                    {/* Highly Scannable Highlights Badges Grid */}
+                    <div className="hero-badges-grid">
+                        <div className="hero-badge glass">
+                            <GraduationCap size={16} className="hero-badge-icon icon-cyan" />
+                            <span className="outfit">ICT Honors Student</span>
+                        </div>
+                        <div className="hero-badge glass">
+                            <Briefcase size={16} className="hero-badge-icon icon-purple" />
+                            <span className="outfit">Ex-Bank Trainee</span>
+                        </div>
+                        <div className="hero-badge glass">
+                            <Code2 size={16} className="hero-badge-icon icon-emerald" />
+                            <span className="outfit">Full-Stack & UI/UX Stack</span>
+                        </div>
+                    </div>
+
+                    {/* Above the Fold CTAs */}
                     <div className="cta-buttons">
-                        <a href="#projects" className="btn-primary">View Projects</a>
-                        <a href="#contact" className="btn-secondary">Let's Connect</a>
+                        <a id="hero-download-cv-btn" href="/Praveena_CV.pdf" download className="btn-primary">
+                            <Download size={18} />
+                            <span>Download CV</span>
+                        </a>
+                        <a id="hero-view-projects-btn" href="#projects" className="btn-secondary">
+                            <span>View Projects</span>
+                            <ChevronRight size={18} />
+                        </a>
+                    </div>
+
+                    {/* Above the Fold Quick Connect Social Icons Row */}
+                    <div className="hero-social-row">
+                        <motion.a 
+                            id="hero-social-linkedin-link"
+                            whileHover={{ y: -3, scale: 1.05 }} 
+                            href="https://www.linkedin.com/in/praveenabuddhini/" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hero-social-icon linkedin" 
+                            title="LinkedIn"
+                        >
+                            <Linkedin size={20} />
+                        </motion.a>
+                        <motion.a 
+                            id="hero-social-github-link"
+                            whileHover={{ y: -3, scale: 1.05 }} 
+                            href="https://github.com/Praveena32" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hero-social-icon github" 
+                            title="GitHub"
+                        >
+                            <Github size={20} />
+                        </motion.a>
+                        <motion.a 
+                            id="hero-social-email-link"
+                            whileHover={{ y: -3, scale: 1.05 }} 
+                            href="mailto:mpbkalpana22@gmail.com" 
+                            className="hero-social-icon email" 
+                            title="Email"
+                        >
+                            <Mail size={20} />
+                        </motion.a>
+                        <motion.a 
+                            id="hero-social-behance-link"
+                            whileHover={{ y: -3, scale: 1.05 }} 
+                            href="https://www.behance.net/praveenbk2002" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hero-social-icon behance" 
+                            title="Behance"
+                        >
+                            <BehanceIcon />
+                        </motion.a>
                     </div>
                 </motion.div>
             </div>

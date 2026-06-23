@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Github, ExternalLink, Cpu, CheckCircle2, Award, FileCode, ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react';
+import { ArrowLeft, Github, ExternalLink, Cpu, CheckCircle2, FileCode, ChevronLeft, ChevronRight, User, TrendingUp } from 'lucide-react';
 import { projectsData } from '../data/projectsData';
 
 interface ProjectDetailsProps {
@@ -106,244 +106,10 @@ const ProjectCarousel: React.FC<{ images: string[]; isMobile?: boolean }> = ({ i
     );
 };
 
-const LogoDesignShowcase: React.FC = () => {
-    const [selectedLogo, setSelectedLogo] = useState<any | null>(null);
-
-    const logoShowcaseData = [
-        {
-            title: 'Dishvana Colombo',
-            category: 'Branding & Identity',
-            image: '/dishvana_logo_new.png',
-            description: 'A minimalist orange dining plate emblem with crossed cutlery, tailored for a premium Sri Lankan fusion dining brand.',
-            tags: ['Logo Design', 'Branding', 'Vector Art']
-        },
-        {
-            title: 'ICT Expo 3.0',
-            category: 'Event Identity',
-            image: '/ict_expo_logo.jpg',
-            description: 'A technological studies shield representing the Faculty of Technological Studies 2026 expo with circuit lines and CPU cores.',
-            tags: ['Emblem', 'Event Identity', 'Tech Styling']
-        },
-        {
-            title: 'Nivora Wellness',
-            category: 'App Icon & Logo',
-            image: '/nivora_logo_new.png',
-            description: 'A 3D lavender-shaded mental well-being brain and meditating figure, creating a calming visual anchor.',
-            tags: ['3D Modeling', 'Branding', 'Digital Health']
-        },
-        {
-            title: 'YumYum Go',
-            category: 'Branding & Logo',
-            image: '/yumyum_go_logo.png',
-            description: 'A playful and friendly food delivery branding depicting a cute pizza mascot and a high-carb delicious burger and cupcake setup.',
-            tags: ['Logo Design', 'Illustration', 'Mascot']
-        },
-        {
-            title: 'Gayansa Dress Point',
-            category: 'Branding & Identity',
-            image: '/gayansa_logo.png',
-            description: 'A clean, minimalistic apparel store branding showcasing a stylized coat hanger accented with elegant leaves.',
-            tags: ['Apparel Store', 'Minimalist', 'Branding']
-        },
-        {
-            title: 'Praveena Fashions',
-            category: 'Fashion Identity',
-            image: '/praveena_fashions_logo_new.png',
-            description: 'A premium gold line-art seal design featuring a minimalist woman\'s profile surrounded by elegant laurel leaves.',
-            tags: ['Fashion Branding', 'Gold Foil Styling', 'Line Art Emblem']
-        },
-        {
-            title: 'Nexora Branding',
-            category: 'Identity & Concept',
-            image: '/nexora_logo.png',
-            description: 'A sleek, futuristic abstract blue ribbon concept with a circle core representing connectivity, styled "From Youth, For Youth".',
-            tags: ['Abstract Logo', 'Corporate Identity', 'Futuristic']
-        },
-        {
-            title: 'Wannasolo Platform',
-            category: 'UI/UX & Branding',
-            image: '/wannasolo_logo_new.png',
-            description: 'A geographic location pin emblem accentuating solo traveler adventure paths, mountain ridges, and beachfront sunsets.',
-            tags: ['Travel Logo', 'Identity Design', 'Pin Art']
-        },
-        {
-            title: 'Mr. Smith Forge Banner (Classic)',
-            category: 'Social Media Graphic',
-            image: '/banner_mr_smith1.png',
-            description: 'A dark, high-contrast promotional banner for Mr. Smith - The Legendary Forge Bladesmith Workshop, presenting its classic logo badge.',
-            tags: ['Cover Art', 'Promo Banner', 'Workshop Branding']
-        },
-        {
-            title: 'Mr. Smith Forge Banner (Gold Trim)',
-            category: 'Social Media Graphic',
-            image: '/banner_mr_smith2.jpg',
-            description: 'An elegant alternative cover banner featuring gold ornate frames and a blacksmith in action, highlighting bladesmith craft.',
-            tags: ['Banner Design', 'Gold Ornament', 'Marketing Ad']
-        },
-        {
-            title: 'Mr. Smith Forge Banner (Flame Ring)',
-            category: 'Social Media Graphic',
-            image: '/banner_mr_smith3.jpg',
-            description: 'A high-impact promotional banner representing the legendary forge heat with a glowing ring of fire logo lockup.',
-            tags: ['Cover Banner', 'Creative Concept', 'Flame Motif']
-        },
-        {
-            title: 'Tech Innovation Banner',
-            category: 'LinkedIn Banner',
-            image: '/banner_tech_praveena.jpg',
-            description: 'A tech-inspired professional LinkedIn cover banner highlighting software engineering, AI, and UI/UX design capabilities.',
-            tags: ['LinkedIn Cover', 'Tech Styling', 'Professional Brand']
-        },
-        {
-            title: 'Dishvana Colombo Yum Paradise Banner',
-            category: 'Social Media Graphic',
-            image: '/banner_dishvana.png',
-            description: 'A marketing advertisement banner designed for Facebook/Instagram showcasing gourmet pizza, highlighting the "One Click into Yum Paradise" tagline.',
-            tags: ['Food Ad Creative', 'Facebook Cover', 'Marketing Campaign']
-        }
-    ];
-
-    return (
-        <div className="logo-showcase-container glass" style={{ padding: '2.5rem', borderRadius: '1.5rem', marginBottom: '2.5rem' }}>
-            <h2 className="outfit section-heading" style={{ marginBottom: '1.5rem' }}>Brand Identities Catalog</h2>
-            <div className="gallery-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1.5rem' }}>
-                {logoShowcaseData.map((logo, index) => (
-                    <motion.div
-                        key={index}
-                        whileHover={{ y: -5 }}
-                        className="gallery-card glass"
-                        style={{ 
-                            borderRadius: '0.75rem', 
-                            overflow: 'hidden', 
-                            cursor: 'pointer',
-                            border: '1px solid var(--card-border)',
-                            display: 'flex',
-                            flexDirection: 'column'
-                        }}
-                        onClick={() => setSelectedLogo(logo)}
-                    >
-                        <div className="gallery-img-wrapper" style={{ position: 'relative', overflow: 'hidden', aspectRatio: '1/1', background: '#0a0a0f', display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid var(--card-border)' }}>
-                            <img 
-                                src={logo.image} 
-                                alt={logo.title} 
-                                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
-                                className="gallery-img"
-                            />
-                            <div className="gallery-overlay" style={{ position: 'absolute', inset: 0, background: 'rgba(5, 5, 10, 0.6)', opacity: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'opacity 0.3s ease', backdropFilter: 'blur(3px)' }}>
-                                <div style={{ background: 'var(--accent-primary)', color: 'white', padding: '0.5rem', borderRadius: '50%' }}>
-                                    <Maximize2 size={16} />
-                                </div>
-                            </div>
-                        </div>
-                        <div style={{ padding: '1rem' }}>
-                            <span style={{ fontSize: '0.7rem', color: 'var(--accent-primary)', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                                {logo.category}
-                            </span>
-                            <h4 className="outfit" style={{ fontSize: '1.05rem', margin: '0.2rem 0 0', color: 'var(--text-primary)' }}>
-                                {logo.title}
-                            </h4>
-                        </div>
-                    </motion.div>
-                ))}
-            </div>
-
-            <AnimatePresence>
-                {selectedLogo && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => setSelectedLogo(null)}
-                        style={{
-                            position: 'fixed',
-                            inset: 0,
-                            background: 'rgba(5, 5, 10, 0.85)',
-                            backdropFilter: 'blur(10px)',
-                            WebkitBackdropFilter: 'blur(10px)',
-                            zIndex: 9999,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            padding: '1.5rem'
-                        }}
-                    >
-                        <motion.div
-                            initial={{ scale: 0.9, y: 20 }}
-                            animate={{ scale: 1, y: 0 }}
-                            exit={{ scale: 0.9, y: 20 }}
-                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            onClick={(e) => e.stopPropagation()}
-                            className="glass"
-                            style={{
-                                width: '100%',
-                                maxWidth: '750px',
-                                borderRadius: '1.5rem',
-                                overflow: 'hidden',
-                                border: '1px solid var(--card-border)',
-                                boxShadow: '0 25px 50px rgba(0,0,0,0.5)',
-                                background: 'rgba(10,10,15,0.95)'
-                            }}
-                        >
-                            <div className="lightbox-grid">
-                                <div className="lightbox-img-container" style={{ background: '#0a0a0f', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '350px', padding: '1rem' }}>
-                                    <img 
-                                        src={selectedLogo.image} 
-                                        alt={selectedLogo.title} 
-                                        style={{ width: '100%', height: '100%', objectFit: 'contain', maxHeight: '420px' }}
-                                    />
-                                </div>
-                                <div className="lightbox-content" style={{ padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative' }}>
-                                    <button 
-                                        onClick={() => setSelectedLogo(null)}
-                                        style={{
-                                            position: 'absolute',
-                                            top: '1.5rem',
-                                            right: '1.5rem',
-                                            background: 'rgba(255,255,255,0.08)',
-                                            border: '1px solid rgba(255,255,255,0.15)',
-                                            color: '#f8fafc',
-                                            width: '36px',
-                                            height: '36px',
-                                            borderRadius: '50%',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            cursor: 'pointer',
-                                            zIndex: 20
-                                        }}
-                                        className="close-modal-btn"
-                                    >
-                                        <X size={18} />
-                                    </button>
-                                    <span style={{ fontSize: '0.8rem', color: 'var(--accent-primary)', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                                        {selectedLogo.category}
-                                    </span>
-                                    <h3 className="outfit" style={{ fontSize: '1.8rem', margin: '0.5rem 0 1rem', color: '#f8fafc', lineHeight: 1.2 }}>
-                                        {selectedLogo.title}
-                                    </h3>
-                                    <p style={{ color: '#cbd5e1', lineHeight: '1.6', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
-                                        {selectedLogo.description}
-                                    </p>
-                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                                        {selectedLogo.tags.map((tag: string, i: number) => (
-                                            <span key={i} style={{ fontSize: '0.75rem', padding: '0.3rem 0.75rem', borderRadius: '6px', background: 'rgba(255,255,255,0.05)', color: '#f8fafc', border: '1px solid rgba(255,255,255,0.08)' }}>
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    );
-};
 
 const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectId, onBack }) => {
     const project = projectsData.find(p => p.id === projectId);
-    const isDesignProject = project?.id === 'logo-design' || project?.id === 'wannasolo' || project?.id === 'learnify' || project?.id === 'tabler' || project?.id === 'zigzag' || project?.id === 'avenra';
+    const isDesignProject = project?.id === 'wannasolo' || project?.id === 'learnify' || project?.id === 'zigzag' || project?.id === 'avenra';
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'instant' as any });
@@ -499,49 +265,220 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectId, onBack }) =>
                     className="detail-grid"
                     style={{ marginBottom: '2.5rem' }}
                 >
-                    {/* Left Column: Scope & Features */}
+                    {/* Left Column: Case Study Main Sections */}
                     <div className="detail-col-main">
-                        {/* Problem Statement Card */}
-                        <motion.section variants={itemVariants} className="detail-card glass">
-                            <h2 className="outfit section-heading">The Challenge / Problem</h2>
-                            <p className="body-text">{project.details.problem}</p>
-                        </motion.section>
+                        {isDesignProject ? (
+                            <>
+                                {/* Problem Statement */}
+                                <motion.section variants={itemVariants} className="detail-card glass">
+                                    <h2 className="outfit section-heading">Problem Statement</h2>
+                                    <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                        {project.details.problemSolved.map((point, idx) => (
+                                            <li key={idx} className="body-text" style={{ listStyleType: 'disc', color: 'var(--text-secondary)' }}>
+                                                {point}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </motion.section>
 
-                        {/* Solution Card */}
-                        <motion.section variants={itemVariants} className="detail-card glass">
-                            <h2 className="outfit section-heading">Our Proposed Solution</h2>
-                            <p className="body-text">{project.details.solution}</p>
-                        </motion.section>
+                                {/* User Research */}
+                                {project.details.userResearch && (
+                                    <motion.section variants={itemVariants} className="detail-card glass">
+                                        <h2 className="outfit section-heading">User Research</h2>
+                                        <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                            {project.details.userResearch.map((point, idx) => (
+                                                <li key={idx} className="body-text" style={{ listStyleType: 'disc', color: 'var(--text-secondary)' }}>
+                                                    {point}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </motion.section>
+                                )}
 
-                        {/* Features List Section */}
-                        <motion.section variants={itemVariants} className="detail-card glass">
-                            <h2 className="outfit section-heading">Key Features & Deliverables</h2>
-                            <div className="features-list-grid">
-                                {project.details.features.map((feature, idx) => (
-                                    <div key={idx} className="feature-item">
-                                        <div className="feature-icon-wrapper">
-                                            <CheckCircle2 size={18} className="feature-check-icon" />
+                                {/* User Pain Points */}
+                                {project.details.userPainPoints && (
+                                    <motion.section variants={itemVariants} className="detail-card glass">
+                                        <h2 className="outfit section-heading">User Pain Points</h2>
+                                        <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                            {project.details.userPainPoints.map((point, idx) => (
+                                                <li key={idx} className="body-text" style={{ listStyleType: 'disc', color: 'var(--text-secondary)' }}>
+                                                    {point}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </motion.section>
+                                )}
+
+                                {/* Personas */}
+                                {project.details.personas && (
+                                    <motion.section variants={itemVariants} className="detail-card glass">
+                                        <h2 className="outfit section-heading">Personas</h2>
+                                        <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                            {project.details.personas.map((point, idx) => (
+                                                <li key={idx} className="body-text" style={{ listStyleType: 'disc', color: 'var(--text-secondary)' }}>
+                                                    {point}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </motion.section>
+                                )}
+
+                                {/* User Flows */}
+                                {project.details.userFlows && (
+                                    <motion.section variants={itemVariants} className="detail-card glass">
+                                        <h2 className="outfit section-heading">User Flows</h2>
+                                        <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                            {project.details.userFlows.map((point, idx) => (
+                                                <li key={idx} className="body-text" style={{ listStyleType: 'disc', color: 'var(--text-secondary)' }}>
+                                                    {point}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </motion.section>
+                                )}
+
+                                {/* Wireframes */}
+                                {project.details.wireframes && (
+                                    <motion.section variants={itemVariants} className="detail-card glass">
+                                        <h2 className="outfit section-heading">Wireframes</h2>
+                                        <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                            {project.details.wireframes.map((point, idx) => (
+                                                <li key={idx} className="body-text" style={{ listStyleType: 'disc', color: 'var(--text-secondary)' }}>
+                                                    {point}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </motion.section>
+                                )}
+
+                                {/* Design Decisions */}
+                                <motion.section variants={itemVariants} className="detail-card glass">
+                                    <h2 className="outfit section-heading">Design Decisions</h2>
+                                    <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                        {project.details.designProcess.map((point, idx) => (
+                                            <li key={idx} className="body-text" style={{ listStyleType: 'disc', color: 'var(--text-secondary)' }}>
+                                                {point}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </motion.section>
+
+                                {/* Accessibility Considerations */}
+                                {project.details.accessibilityConsiderations && (
+                                    <motion.section variants={itemVariants} className="detail-card glass">
+                                        <h2 className="outfit section-heading">Accessibility Considerations</h2>
+                                        <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                            {project.details.accessibilityConsiderations.map((point, idx) => (
+                                                <li key={idx} className="body-text" style={{ listStyleType: 'disc', color: 'var(--text-secondary)' }}>
+                                                    {point}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </motion.section>
+                                )}
+                            </>
+                        ) : (
+                            <>
+                                {/* Problem Solved */}
+                                <motion.section variants={itemVariants} className="detail-card glass">
+                                    <h2 className="outfit section-heading">Problem Solved</h2>
+                                    <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                        {project.details.problemSolved.map((point, idx) => (
+                                            <li key={idx} className="body-text" style={{ listStyleType: 'disc', color: 'var(--text-secondary)' }}>
+                                                {point}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </motion.section>
+
+                                {/* Design Process */}
+                                <motion.section variants={itemVariants} className="detail-card glass">
+                                    <h2 className="outfit section-heading">Design Process</h2>
+                                    <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                        {project.details.designProcess.map((point, idx) => (
+                                            <li key={idx} className="body-text" style={{ listStyleType: 'disc', color: 'var(--text-secondary)' }}>
+                                                {point}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </motion.section>
+
+                                {/* Technical Challenges */}
+                                <motion.section variants={itemVariants} className="detail-card glass">
+                                    <h2 className="outfit section-heading">Technical Challenges</h2>
+                                    <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                        {project.details.technicalChallenges.map((point, idx) => (
+                                            <li key={idx} className="body-text" style={{ listStyleType: 'disc', color: 'var(--text-secondary)' }}>
+                                                {point}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </motion.section>
+
+                                {/* Solution Implemented */}
+                                <motion.section variants={itemVariants} className="detail-card glass">
+                                    <h2 className="outfit section-heading">Solution Implemented</h2>
+                                    <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                                        {project.details.solutionImplemented.map((point, idx) => (
+                                            <li key={idx} className="body-text" style={{ listStyleType: 'disc', color: 'var(--text-secondary)' }}>
+                                                {point}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    
+                                    <div style={{ marginTop: '1.5rem', borderTop: '1px solid var(--card-border)', paddingTop: '1.25rem' }}>
+                                        <h4 className="outfit" style={{ fontSize: '0.85rem', color: 'var(--accent-primary)', textTransform: 'uppercase', marginBottom: '0.75rem', fontWeight: 700 }}>Key Implementation Features:</h4>
+                                        <div className="features-list-grid">
+                                            {project.details.features.map((feature, idx) => (
+                                                <div key={idx} className="feature-item">
+                                                    <div className="feature-icon-wrapper">
+                                                        <CheckCircle2 size={18} className="feature-check-icon" />
+                                                    </div>
+                                                    <p className="feature-text">{feature}</p>
+                                                </div>
+                                            ))}
                                         </div>
-                                        <p className="feature-text">{feature}</p>
                                     </div>
-                                ))}
-                            </div>
-                        </motion.section>
+                                </motion.section>
+                            </>
+                        )}
                     </div>
 
-                    {/* Right Column: Specifications */}
+                    {/* Right Column: Side Details */}
                     <div className="detail-col-side">
-                        {/* Technologies Tags Card */}
+                        {/* My Role */}
+                        <motion.section variants={itemVariants} className="detail-card side-card glass" style={{ borderLeft: '3px solid var(--accent-secondary)' }}>
+                            <h3 className="outfit side-heading" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><User size={18} /> My Role</h3>
+                            <p className="body-text" style={{ fontSize: '0.95rem', fontWeight: '600', color: 'var(--text-primary)', marginTop: '0.5rem' }}>
+                                {project.details.role}
+                            </p>
+                        </motion.section>
+
+                        {/* Technologies Used */}
                         <motion.section variants={itemVariants} className="detail-card side-card glass">
-                            <h3 className="outfit side-heading"><FileCode size={18} /> {isDesignProject ? 'Design Toolkit' : 'Technologies Stack'}</h3>
-                            <div className="tech-tags-grid">
+                            <h3 className="outfit side-heading" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><FileCode size={18} /> Technologies Used</h3>
+                            <div className="tech-tags-grid" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginTop: '0.75rem' }}>
                                 {project.tech.map((t, idx) => (
-                                    <span key={idx} className="tech-tag">{t}</span>
+                                    <span key={idx} className="tech-tag" style={{ margin: 0 }}>{t}</span>
                                 ))}
                             </div>
                         </motion.section>
 
-                        {/* System Architecture */}
+                        {/* Impact or Lessons Learned */}
+                        <motion.section variants={itemVariants} className="detail-card side-card glass" style={{ borderLeft: '3px solid #10b981', background: 'rgba(16, 185, 129, 0.02)' }}>
+                            <h3 className="outfit side-heading" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#10b981' }}>
+                                <TrendingUp size={18} /> {isDesignProject ? 'Lessons Learned' : 'Impact'}
+                            </h3>
+                            <ul className="case-study-list" style={{ paddingLeft: '1.25rem', margin: '0.5rem 0 0', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                {project.details.impact.map((point, idx) => (
+                                    <li key={idx} className="body-text" style={{ listStyleType: 'disc', fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+                                        {point}
+                                    </li>
+                                ))}
+                            </ul>
+                        </motion.section>
+
+                        {/* System Specifications / Architecture (Fallback modules support) */}
                         {project.details.architecture && (
                             <motion.section variants={itemVariants} className="detail-card side-card glass">
                                 <h3 className="outfit side-heading"><Cpu size={18} /> {isDesignProject ? 'Design Specifications' : 'Architecture & Modules'}</h3>
@@ -555,45 +492,45 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectId, onBack }) =>
                                 </ul>
                             </motion.section>
                         )}
-
-                        {/* Learning Outcomes */}
-                        {project.details.learningOutcomes && (
-                            <motion.section variants={itemVariants} className="detail-card side-card glass">
-                                <h3 className="outfit side-heading"><Award size={18} /> {isDesignProject ? 'UX Key Takeaways' : 'Engineering Takeaways'}</h3>
-                                <ul className="learning-list">
-                                    {project.details.learningOutcomes.map((learn, idx) => (
-                                        <li key={idx}>{learn}</li>
-                                    ))}
-                                </ul>
-                            </motion.section>
-                        )}
                     </div>
                 </motion.div>
 
-                {/* Screenshots Carousel or Custom Design Catalog Grid */}
-                {project.id === 'logo-design' ? (
+                {/* Figma Interactive Prototype Embed Container */}
+                {isDesignProject && project.figma && (
+                    <motion.section
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="detail-card glass"
+                        style={{ marginBottom: '2.5rem' }}
+                    >
+                        <h2 className="outfit section-heading" style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                            <FigmaIcon /> Interactive Figma Prototype
+                        </h2>
+                        <div style={{ position: 'relative', width: '100%', borderRadius: '1rem', overflow: 'hidden', border: '1px solid var(--card-border)', background: '#0a0a0f', height: '600px' }}>
+                            <iframe
+                                title={`${project.title} Figma Prototype`}
+                                src={`https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(project.figma)}`}
+                                allowFullScreen
+                                style={{ width: '100%', height: '100%', border: 'none' }}
+                            />
+                        </div>
+                    </motion.section>
+                )}
+
+                {/* Screenshots Carousel */}
+                {project.screenshots && project.screenshots.length > 0 && (
                     <motion.section
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.35 }}
                         style={{ marginTop: '2.5rem' }}
                     >
-                        <LogoDesignShowcase />
+                        <ProjectCarousel 
+                            images={project.screenshots} 
+                            isMobile={project.id === 'nivora' || project.tech.includes('React Native') || project.tech.includes('Flutter')}
+                        />
                     </motion.section>
-                ) : (
-                    project.screenshots && project.screenshots.length > 0 && (
-                        <motion.section
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.35 }}
-                            style={{ marginTop: '2.5rem' }}
-                        >
-                            <ProjectCarousel 
-                                images={project.screenshots} 
-                                isMobile={project.id === 'nivora' || project.tech.includes('React Native') || project.tech.includes('Flutter')}
-                            />
-                        </motion.section>
-                    )
                 )}
             </main>
         </article>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Code, Paintbrush, Figma } from 'lucide-react';
+import { ExternalLink, Github, Code, Paintbrush, Figma, User, ChevronRight } from 'lucide-react';
 import { projectsData } from '../data/projectsData';
 
 const Projects: React.FC = () => {
@@ -10,7 +10,7 @@ const Projects: React.FC = () => {
         window.location.hash = `#/project/${id}`;
     };
 
-    const designIds = ['logo-design', 'wannasolo', 'learnify', 'tabler', 'zigzag', 'avenra'];
+    const designIds = ['wannasolo', 'learnify', 'zigzag', 'avenra'];
 
     const filteredProjects = projectsData.filter(project => {
         if (filter === 'all') return true;
@@ -22,14 +22,17 @@ const Projects: React.FC = () => {
     return (
         <section id="projects" className="projects-section">
             <div className="container">
-                <div className="section-header">
-                    <h2 className="outfit gradient-text">Featured Works</h2>
+                <div className="section-header" style={{ marginBottom: '3.5rem' }}>
+                    <h2 className="outfit gradient-text" style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '1rem' }}>
+                        Case Studies & Featured Works
+                    </h2>
                     <div className="section-line"></div>
                 </div>
 
                 {/* Filter Tabs */}
                 <div className="projects-tabs" style={{ display: 'flex', gap: '0.75rem', marginBottom: '3rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                     <button
+                        id="projects-filter-all-btn"
                         onClick={() => setFilter('all')}
                         className={`skills-tab-btn outfit ${filter === 'all' ? 'active' : ''}`}
                         style={{
@@ -48,6 +51,7 @@ const Projects: React.FC = () => {
                         Show All
                     </button>
                     <button
+                        id="projects-filter-dev-btn"
                         onClick={() => setFilter('dev')}
                         className={`skills-tab-btn outfit ${filter === 'dev' ? 'active' : ''}`}
                         style={{
@@ -70,6 +74,7 @@ const Projects: React.FC = () => {
                         Software Development
                     </button>
                     <button
+                        id="projects-filter-design-btn"
                         onClick={() => setFilter('design')}
                         className={`skills-tab-btn outfit ${filter === 'design' ? 'active' : ''}`}
                         style={{
@@ -119,7 +124,7 @@ const Projects: React.FC = () => {
                                             position: 'absolute',
                                             top: '1rem',
                                             right: '1rem',
-                                            background: 'rgba(5, 5, 5, 0.8)',
+                                            background: 'rgba(5, 5, 5, 0.85)',
                                             backdropFilter: 'blur(8px)',
                                             WebkitBackdropFilter: 'blur(8px)',
                                             color: isDesign ? 'var(--accent-secondary)' : 'var(--accent-primary)',
@@ -145,46 +150,89 @@ const Projects: React.FC = () => {
                                         className="project-content"
                                         style={{ '--project-image': `url(${project.image})` } as React.CSSProperties}
                                     >
-                                        <h3>{project.title}</h3>
-                                        <p className="truncated-desc" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden', height: 'auto', maxHeight: '4.8em', opacity: 1, margin: '0.5rem 0 1rem' }}>
-                                            {project.description}
+                                        <h3 style={{ fontSize: '1.4rem', fontWeight: '700', marginBottom: '0.35rem' }}>{project.title}</h3>
+                                        <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontStyle: 'italic', margin: '0 0 1rem', textShadow: 'none', fontWeight: '500' }}>
+                                            {project.tagline}
                                         </p>
-                                        
-                                        <button
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                handleViewProject(project.id);
-                                            }}
-                                            className="see-more-btn"
-                                            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', background: 'none', border: 'none', color: 'var(--accent-primary)', fontSize: '0.8rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em', cursor: 'pointer' }}
-                                        >
-                                            View Case Study &rarr;
-                                        </button>
 
-                                        <div className="project-tech" style={{ marginTop: '1rem' }} onClick={(e) => e.stopPropagation()}>
-                                            {project.tech.slice(0, 4).map((t, i) => (
-                                                <span key={i} className="tech-tag">{t}</span>
+                                        {/* Project Role Badge */}
+                                        <div className="project-role-badge" style={{ marginBottom: '0.75rem' }}>
+                                            <span style={{ 
+                                                display: 'inline-flex', 
+                                                alignItems: 'center', 
+                                                gap: '0.4rem', 
+                                                background: 'rgba(6, 182, 212, 0.08)', 
+                                                border: '1px solid rgba(6, 182, 212, 0.2)',
+                                                color: 'var(--accent-secondary)', 
+                                                padding: '0.3rem 0.75rem', 
+                                                borderRadius: '6px',
+                                                fontSize: '0.8rem',
+                                                fontWeight: '600'
+                                            }}>
+                                                <User size={13} />
+                                                Role: {project.details.role}
+                                            </span>
+                                        </div>
+
+                                        {/* Tech Badges Row */}
+                                        <div className="project-tech" style={{ marginTop: '0', marginBottom: '1.25rem', display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }} onClick={(e) => e.stopPropagation()}>
+                                            {project.tech.slice(0, 3).map((t, i) => (
+                                                <span key={i} className="tech-tag" style={{ fontSize: '0.75rem', padding: '0.15rem 0.5rem' }}>{t}</span>
                                             ))}
-                                            {project.tech.length > 4 && (
-                                                <span className="tech-tag">+{project.tech.length - 4}</span>
+                                            {project.tech.length > 3 && (
+                                                <span className="tech-tag" style={{ fontSize: '0.75rem', padding: '0.15rem 0.5rem' }}>+{project.tech.length - 3}</span>
                                             )}
                                         </div>
-                                        <div className="project-links" onClick={(e) => e.stopPropagation()}>
-                                            {project.figma && (
-                                                <a href={project.figma} target="_blank" rel="noopener noreferrer" className="link-icon" title="Figma Prototype">
-                                                    <Figma size={20} />
-                                                </a>
-                                            )}
-                                            {project.github && (
-                                                <a href={project.github} target="_blank" rel="noopener noreferrer" className="link-icon" title="GitHub Repository">
-                                                    <Github size={20} />
-                                                </a>
-                                            )}
-                                            {project.demo && project.demo !== '#' && (
-                                                <a href={project.demo} target="_blank" rel="noopener noreferrer" className="link-icon" title="Live Demo">
-                                                    <ExternalLink size={20} />
-                                                </a>
-                                            )}
+                                        
+                                        {/* Footer CTAs and Icons */}
+                                        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--card-border)' }}>
+                                            <button
+                                                id={`project-card-read-case-study-${project.id}`}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    handleViewProject(project.id);
+                                                }}
+                                                className="project-cta-btn main-cta outfit"
+                                                style={{ 
+                                                    flex: 1, 
+                                                    display: 'inline-flex', 
+                                                    alignItems: 'center', 
+                                                    justifyContent: 'center',
+                                                    gap: '0.35rem', 
+                                                    background: 'rgba(139, 92, 246, 0.08)', 
+                                                    border: '1px solid rgba(139, 92, 246, 0.25)', 
+                                                    color: 'var(--text-primary)', 
+                                                    fontSize: '0.82rem', 
+                                                    fontWeight: '700', 
+                                                    textTransform: 'uppercase', 
+                                                    letterSpacing: '0.04em', 
+                                                    cursor: 'pointer', 
+                                                    padding: '0.5rem 0.8rem',
+                                                    borderRadius: '8px',
+                                                    transition: 'all 0.3s ease'
+                                                }}
+                                            >
+                                                <span>Read Case Study</span>
+                                                <ChevronRight size={14} />
+                                            </button>
+
+                                            <div className="project-links" onClick={(e) => e.stopPropagation()} style={{ display: 'flex', gap: '0.4rem', flexShrink: 0 }}>
+                                                {project.figma && (
+                                                    <a id={`project-card-figma-${project.id}`} href={project.figma} target="_blank" rel="noopener noreferrer" className="project-icon-btn figma-btn" title="Figma Prototype" style={{ color: 'var(--text-secondary)', transition: 'color 0.2s' }}>
+                                                        <Figma size={15} />
+                                                    </a>
+                                                )}
+                                                {project.github && (
+                                                    <a id={`project-card-github-${project.id}`} href={project.github} target="_blank" rel="noopener noreferrer" className="project-icon-btn github-btn" title="GitHub Repository" style={{ color: 'var(--text-secondary)', transition: 'color 0.2s' }}>
+                                                        <Github size={15} />
+                                                    </a>
+                                                )}
+                                                {project.demo && project.demo !== '#' && (
+                                                    <a id={`project-card-demo-${project.id}`} href={project.demo} target="_blank" rel="noopener noreferrer" className="project-icon-btn demo-btn" title="Live Demo" style={{ color: 'var(--text-secondary)', transition: 'color 0.2s' }}>
+                                                        <ExternalLink size={15} />
+                                                    </a>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 </motion.div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FileText } from 'lucide-react';
 
 import ThemeToggle from './ThemeToggle';
 
@@ -59,12 +60,12 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             )}
           </AnimatePresence>
           <div>
-            <span className="gradient-text">Praveena</span> | Portfolio
+            <span className="gradient-text">Praveena</span><span className="logo-portfolio-text"> | Portfolio</span>
           </div>
         </motion.div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }} className="nav-actions-wrapper">
           <ul className="nav-links">
-            {['Home', 'About', 'Skills', 'Projects', 'Achievements', 'Contact'].map((item) => (
+            {['Home', 'About', 'Skills', 'Experience', 'Projects', 'Achievements', 'Contact'].map((item) => (
               <li key={item}>
                 <motion.a
                   href={`#${item.toLowerCase()}`}
@@ -77,6 +78,17 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               </li>
             ))}
           </ul>
+          
+          <a
+            id="navbar-resume-download-btn"
+            href="/Praveena_CV.pdf"
+            download
+            className="navbar-resume-btn outfit"
+          >
+            <FileText size={14} className="navbar-resume-icon" />
+            <span className="navbar-resume-text">Resume</span>
+          </a>
+
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         </div>
       </div>
