@@ -146,6 +146,14 @@
   font-weight: 600;
 }
 
+.hero-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-bottom: 2.25rem;
+}
+
 .hero-availability-badge {
   display: inline-flex;
   align-items: center;
@@ -157,7 +165,6 @@
   color: #10b981;
   font-size: 0.9rem;
   font-weight: 700;
-  margin-bottom: 2.25rem;
   letter-spacing: 0.02em;
   box-shadow: 0 4px 15px rgba(16, 185, 129, 0.05);
   transition: var(--transition-smooth);
@@ -174,6 +181,36 @@
   background: rgba(16, 185, 129, 0.12);
   transform: translateY(-1px);
   box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+}
+
+.hero-views-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: #a78bfa;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.05);
+  transition: var(--transition-smooth);
+  cursor: default;
+}
+
+[data-theme='light'] .hero-views-badge {
+  background: rgba(109, 40, 217, 0.08);
+  border-color: rgba(109, 40, 217, 0.3);
+  color: #6d28d9;
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.06);
+}
+
+.hero-views-badge:hover {
+  background: rgba(139, 92, 246, 0.12);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15);
 }
 
 .availability-pulse-dot {

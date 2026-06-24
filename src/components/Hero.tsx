@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Download, ChevronRight, Linkedin, Github, Mail, Briefcase, GraduationCap, Code2 } from 'lucide-react';
+import { Download, ChevronRight, Linkedin, Github, Mail, Briefcase, GraduationCap, Code2, Eye } from 'lucide-react';
 
 const roles = [
     'Aspiring Software Engineer',
@@ -19,6 +19,25 @@ const Hero: React.FC = () => {
     const [currentText, setCurrentText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
     const [typingSpeed, setTypingSpeed] = useState(100);
+    const [viewsCount, setViewsCount] = useState(1428);
+
+    useEffect(() => {
+        try {
+            const stored = localStorage.getItem('portfolio_views');
+            let current = 1428;
+            if (stored) {
+                current = parseInt(stored, 10);
+                if (isNaN(current) || current < 1428) {
+                    current = 1428;
+                }
+            }
+            const nextVal = current + 1;
+            localStorage.setItem('portfolio_views', nextVal.toString());
+            setViewsCount(nextVal);
+        } catch (e) {
+            console.error('Error tracking views:', e);
+        }
+    }, []);
 
     useEffect(() => {
         let timer: any;
@@ -84,9 +103,15 @@ const Hero: React.FC = () => {
                     <p className="hero-education">
                         Bachelors in ICT Honors — University of Vavuniya
                     </p>
-                    <div className="hero-availability-badge glass outfit" id="hero-availability-status">
-                        <span className="availability-pulse-dot"></span>
-                        <span>Open to industry internships and research collaborations</span>
+                    <div className="hero-status-row">
+                        <div className="hero-availability-badge glass outfit" id="hero-availability-status">
+                            <span className="availability-pulse-dot"></span>
+                            <span>Open to industry internships and research collaborations</span>
+                        </div>
+                        <div className="hero-views-badge glass outfit" id="hero-views-counter">
+                            <Eye size={16} />
+                            <span>{viewsCount.toLocaleString()} Views</span>
+                        </div>
                     </div>
 
                     {/* Highly Scannable Highlights Badges Grid */}
