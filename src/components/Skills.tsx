@@ -77,6 +77,7 @@ const skillsCategories: SkillCategory[] = [
         techs: [
             { name: 'Git', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', level: 90 },
             { name: 'GitHub', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', isInvert: true, level: 90 },
+            { name: 'Docker', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg', level: 80 },
             { name: 'Vercel', iconUrl: 'https://www.vectorlogo.zone/logos/vercel/vercel-icon.svg', level: 85 },
             { name: 'Postman', iconUrl: 'https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg', level: 85 },
             { name: 'NetBeans', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netbeans/netbeans-original.svg', level: 80 },
