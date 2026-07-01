@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  X, Download, Mail, Phone, MapPin, Github, Linkedin, 
+  X, Download, Mail, Phone, MapPin, Github, Linkedin, Globe, 
   FileText, Award, BookOpen, Briefcase, Code, 
-  Sparkles, Languages 
+  Sparkles, Languages, ExternalLink 
 } from 'lucide-react';
 
 interface CVModalProps {
@@ -91,9 +91,13 @@ const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
                     <Github size={14} className="icon-purple" />
                     <span>GitHub Portfolio</span>
                   </a>
-                  <a href="https://linkedin.com/in/praveena-buddhini" target="_blank" rel="noopener noreferrer" className="cv-contact-item">
+                  <a href="https://www.linkedin.com/in/praveenabuddhini/" target="_blank" rel="noopener noreferrer" className="cv-contact-item">
                     <Linkedin size={14} className="icon-purple" />
                     <span>LinkedIn Profile</span>
+                  </a>
+                  <a href="https://praveenabuddhini.vercel.app/" target="_blank" rel="noopener noreferrer" className="cv-contact-item">
+                    <Globe size={14} className="icon-purple" />
+                    <span>Personal Portfolio</span>
                   </a>
                 </div>
               </div>
@@ -143,14 +147,20 @@ const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
                     {/* Project 1 */}
                     <div className="cv-item">
                       <div className="cv-item-header">
-                        <h4 className="outfit cv-item-title">Nivora – AI-Powered Emotional Wellness App</h4>
-                        <span className="cv-project-tech">React Native, Expo, TS, Express</span>
+                        <h4 className="outfit cv-item-title">Nivora – AI-Powered Emotional Wellness Mobile Application</h4>
+                        <span className="cv-project-tech">React Native, Expo, JS, TS, Express.js</span>
                       </div>
                       <ul className="cv-bullets">
                         <li>Architected and developed a cross-platform mobile application focused on accessible emotional wellness support.</li>
                         <li>Engineered an intuitive user interface and seamless navigation flows to optimize user engagement and accessibility.</li>
                         <li>Integrated AI-driven conversational modules to deliver interactive, responsive support capabilities for users.</li>
                       </ul>
+                      <div className="cv-project-links">
+                        <a href="https://github.com/Praveena32/Nivora-mobile-application.git" target="_blank" rel="noopener noreferrer" className="cv-project-link">
+                          <Github size={12} />
+                          <span>GitHub Repository</span>
+                        </a>
+                      </div>
                     </div>
 
                     {/* Project 2 */}
@@ -164,31 +174,75 @@ const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
                         <li>Designed high-fidelity UI prototypes and complex user interaction flows for a dedicated solo travel ecosystem.</li>
                         <li>Conducted user-focused wireframing and design iterations centered heavily on usability, user psychology, and travel flow optimization.</li>
                       </ul>
+                      <div className="cv-project-links">
+                        <a href="https://www.figma.com/proto/A98VO074qPFfiRUGboSVn9/Wannasolo?node-id=163-542&t=hHCqh4movHUYvmmT-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=75%3A532&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer" className="cv-project-link">
+                          <ExternalLink size={12} />
+                          <span>Figma Prototype Link</span>
+                        </a>
+                      </div>
                     </div>
 
                     {/* Project 3 */}
                     <div className="cv-item">
                       <div className="cv-item-header">
-                        <h4 className="outfit cv-item-title">SUAMS – Attendance Management System</h4>
-                        <span className="cv-project-tech">PHP, MySQL, HTML, CSS, JS</span>
+                        <h4 className="outfit cv-item-title">SUAMS – Smart University Attendance Management System</h4>
+                        <span className="cv-project-tech">PHP, MySQL, HTML, CSS, JavaScript</span>
                       </div>
                       <ul className="cv-bullets">
                         <li>Engineered a secure, web-based attendance management system to streamline university administrative tracking.</li>
                         <li>Implemented robust student authentication mechanisms and real-time attendance logging features.</li>
                         <li>Designed and normalized the relational database structure to ensure efficient data storage, security, and low-latency retrieval.</li>
                       </ul>
+                      <div className="cv-project-links">
+                        <a href="https://github.com/Praveena32/smart-attendance.git" target="_blank" rel="noopener noreferrer" className="cv-project-link">
+                          <Github size={12} />
+                          <span>GitHub Repository</span>
+                        </a>
+                      </div>
                     </div>
 
                     {/* Project 4 */}
                     <div className="cv-item">
                       <div className="cv-item-header">
                         <h4 className="outfit cv-item-title">Dishvana – Restaurant Web Platform</h4>
-                        <span className="cv-project-tech">React, JS, HTML, CSS</span>
+                        <span className="cv-project-tech">React, JavaScript, HTML, CSS</span>
                       </div>
                       <ul className="cv-bullets">
                         <li>Developed a fully responsive restaurant e-commerce platform featuring a modern, highly interactive UI.</li>
                         <li>Built dynamic menu browsing, filtering components, and smooth user interaction states.</li>
                       </ul>
+                      <div className="cv-project-links">
+                        <a href="https://github.com/Praveena32/Web-Project-Dishvana.git" target="_blank" rel="noopener noreferrer" className="cv-project-link">
+                          <Github size={12} />
+                          <span>GitHub Repository</span>
+                        </a>
+                        <a href="https://web-project-dishvana.vercel.app/" target="_blank" rel="noopener noreferrer" className="cv-project-link">
+                          <ExternalLink size={12} />
+                          <span>Live Demo</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Project 5 */}
+                    <div className="cv-item">
+                      <div className="cv-item-header">
+                        <h4 className="outfit cv-item-title">Personal Portfolio Website</h4>
+                        <span className="cv-project-tech">React, TypeScript, Tailwind CSS, Framer Motion, Vercel</span>
+                      </div>
+                      <ul className="cv-bullets">
+                        <li>Designed and deployed a production-ready personal portfolio to showcase technical engineering projects and skills.</li>
+                        <li>Built reusable UI components integrated with fluid animations and responsive mobile-first layouts.</li>
+                      </ul>
+                      <div className="cv-project-links">
+                        <a href="https://github.com/Praveena32/Portfolio" target="_blank" rel="noopener noreferrer" className="cv-project-link">
+                          <Github size={12} />
+                          <span>GitHub Repository</span>
+                        </a>
+                        <a href="https://praveenabuddhini.vercel.app/" target="_blank" rel="noopener noreferrer" className="cv-project-link">
+                          <ExternalLink size={12} />
+                          <span>Live Demo</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
