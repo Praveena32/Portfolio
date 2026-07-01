@@ -81,8 +81,8 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           
           <a
             id="navbar-resume-download-btn"
-            href="/Praveena_CV.pdf"
-            download
+            href="/Praveena_Buddhini_Master_CV.pdf"
+            download="Praveena Buddhini Master CV.pdf"
             className="navbar-resume-btn outfit"
           >
             <FileText size={14} className="navbar-resume-icon" />

@@ -132,7 +132,7 @@ const Hero: React.FC = () => {
 
                     {/* Above the Fold CTAs */}
                     <div className="cta-buttons">
-                        <a id="hero-download-cv-btn" href="/Praveena_CV.pdf" download className="btn-primary">
+                        <a id="hero-download-cv-btn" href="/Praveena_Buddhini_Master_CV.pdf" download="Praveena Buddhini Master CV.pdf" className="btn-primary">
                             <Download size={18} />
                             <span>Download CV</span>
                         </a>

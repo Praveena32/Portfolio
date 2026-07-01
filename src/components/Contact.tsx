@@ -35,8 +35,8 @@ const Contact: React.FC = () => {
                         <motion.a
                             whileHover={{ scale: 1.05, y: -2 }}
                             whileTap={{ scale: 0.95 }}
-                            href="/Praveena_CV.pdf"
-                            download
+                            href="/Praveena_Buddhini_Master_CV.pdf"
+                            download="Praveena Buddhini Master CV.pdf"
                             className="btn-cv-download"
                         >
                             <FileText size={20} />
