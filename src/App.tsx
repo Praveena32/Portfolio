@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import Navbar from './components/Navbar';
+import CVModal from './components/CVModal';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -22,6 +23,7 @@ function App() {
 
   const [currentProjectId, setCurrentProjectId] = useState<string | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isCVModalOpen, setIsCVModalOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -83,7 +85,13 @@ function App() {
           }}
         />
       )}
-      {!currentProjectId && <Navbar theme={theme} toggleTheme={toggleTheme} />}
+      {!currentProjectId && (
+        <Navbar 
+          theme={theme} 
+          toggleTheme={toggleTheme} 
+          onViewCV={() => setIsCVModalOpen(true)} 
+        />
+      )}
       <main className="main-content">
         {currentProjectId ? (
           <ProjectDetails projectId={currentProjectId} onBack={handleBackToHome} />
@@ -104,6 +112,11 @@ function App() {
           &copy; {new Date().getFullYear()} M. P. B. Kalpana | University of Vavuniya. All rights reserved.
         </p>
       </footer>
+      <AnimatePresence>
+        {isCVModalOpen && (
+          <CVModal isOpen={isCVModalOpen} onClose={() => setIsCVModalOpen(false)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

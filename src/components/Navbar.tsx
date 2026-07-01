@@ -7,9 +7,10 @@ import ThemeToggle from './ThemeToggle';
 interface NavbarProps {
   theme: 'dark' | 'light';
   toggleTheme: () => void;
+  onViewCV: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
+const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme, onViewCV }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -79,15 +80,22 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             ))}
           </ul>
           
-          <a
+          <button
             id="navbar-resume-download-btn"
-            href="/Praveena_Buddhini_Master_CV.pdf"
-            download="Praveena Buddhini Master CV.pdf"
+            onClick={onViewCV}
             className="navbar-resume-btn outfit"
+            style={{ 
+              background: 'none', 
+              border: 'none', 
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
           >
             <FileText size={14} className="navbar-resume-icon" />
             <span className="navbar-resume-text">Resume</span>
-          </a>
+          </button>
 
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         </div>

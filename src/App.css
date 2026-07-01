@@ -2247,3 +2247,444 @@
     padding: 0.4rem 0.8rem;
   }
 }
+
+/* ==========================================================================
+   CV Modal Styles
+   ========================================================================== */
+.cv-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.cv-modal-content {
+  width: 100%;
+  max-width: 1100px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.5rem;
+  border: 1px solid var(--card-border);
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+.cv-modal-header {
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--card-border);
+  background: rgba(15, 15, 20, 0.4);
+}
+
+.cv-modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cv-modal-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0.1rem 0 0 0;
+}
+
+.cv-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cv-modal-close-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cv-modal-close-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.4);
+  transform: rotate(90deg);
+}
+
+.cv-modal-tabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: rgba(10, 10, 15, 0.2);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.cv-modal-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  transition: all 0.25s ease;
+}
+
+.cv-modal-tab:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cv-modal-tab.active {
+  color: var(--accent-primary);
+  background: rgba(139, 92, 246, 0.1);
+  font-weight: 600;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.cv-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  background: rgba(5, 5, 10, 0.2);
+}
+
+/* Interactive CV layout styles */
+.interactive-cv-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cv-header-card {
+  padding: 2rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cv-name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.cv-tagline {
+  font-size: 1.05rem;
+  color: var(--accent-secondary);
+  font-weight: 500;
+  margin: 0;
+}
+
+.cv-contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.cv-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a.cv-contact-item:hover {
+  color: var(--accent-primary);
+}
+
+.icon-purple {
+  color: var(--accent-primary);
+}
+
+.cv-columns-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 2rem;
+}
+
+.cv-main-column, .cv-side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cv-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cv-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-bottom: 1.5px solid var(--card-border);
+  padding-bottom: 0.5rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.cv-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.cv-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.cv-item:last-child {
+  border-bottom: none;
+}
+
+.cv-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cv-item-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.cv-item-date {
+  font-size: 0.85rem;
+  color: var(--accent-secondary);
+  font-weight: 500;
+}
+
+.cv-item-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin: 0;
+}
+
+.cv-project-tech {
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+  background: rgba(139, 92, 246, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.cv-project-context {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.cv-bullets {
+  margin: 0.25rem 0 0 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cv-bullets li {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Sidebar CV specific styles */
+.cv-side-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cv-side-item-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.cv-side-item-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.cv-side-item-date {
+  font-size: 0.8rem;
+  color: var(--accent-secondary);
+  margin: 0;
+  font-weight: 500;
+}
+
+.cv-coursework {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  margin-top: 0.4rem;
+}
+
+.cv-skills-category {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cv-skills-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.cv-skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cv-skill-tag {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.cv-skill-tag:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+  background: rgba(139, 92, 246, 0.05);
+}
+
+.cv-side-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cv-side-list li {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* PDF View Container styles */
+.pdf-cv-container {
+  width: 100%;
+  height: 100%;
+  min-height: 550px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.cv-pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #121214;
+  flex: 1;
+}
+
+/* Mobile PDF preview fallback */
+.cv-pdf-fallback {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+/* Media Queries for CV Modal */
+@media (max-width: 900px) {
+  .cv-columns-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cv-modal-backdrop {
+    padding: 0.75rem;
+  }
+  .cv-modal-content {
+    height: 95vh;
+    border-radius: 1rem;
+  }
+  .cv-modal-header {
+    padding: 1rem 1.25rem;
+  }
+  .cv-modal-tabs {
+    padding: 0.5rem 1.25rem;
+  }
+  .cv-modal-body {
+    padding: 1.25rem;
+  }
+  .cv-name {
+    font-size: 1.8rem;
+  }
+  .cv-header-card {
+    padding: 1.25rem;
+  }
+  
+  /* Fallback visibility on touch/mobile devices for iframe PDF */
+  .cv-pdf-iframe {
+    display: none;
+  }
+  .cv-pdf-fallback {
+    display: flex;
+  }
+}
